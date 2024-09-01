@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="phvac.css">
+    <title>PHVAC</title>
+</head>
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick="hidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Book now</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Contact-us</a></li>
+
+
+        </ul>
+        <ul>
+            <li class="logo"><a href="#">HV<span>AC</span></a></li>
+            <li class="hideonMobile"><a href="#">Blog</a></li>
+            <li class="hideonMobile"><a href="#">Services</a></li>
+            <li class="hideonMobile"><a href="#">About us</a></li>
+            <li class="hideonMobile"><a href="#">Book now</a></li>
+            <li class="hideonMobile"><a href="#">Login</a></li>
+            <li class="hideonMobile"><a href="#">Contact-us</a></li>
+            <li class="menubtn" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+
+
+        </ul>
+    <!-- </nav>
+    <div class="img-content">
+        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </span>
+        <button class="schedule">Book service</button><br>
+
+      </div> -->
+    <script>
+        function showSidebar(){
+            const sidebar=document.querySelector('.sidebar')
+            sidebar.style.display='flex'
+        }
+        function hidebar(){
+            const sidebar=document.querySelector('.sidebar')
+            sidebar.style.display='none'
+        }
+    </script>
+</body>
+</html>

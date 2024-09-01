@@ -1,0 +1,752 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Define root variables */
+:root {
+    --yellow: #f5bf23;
+    --black: #111;
+    --white: #fff;
+    --light-color: #666;
+    --light-bg: #eee;
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --border: .5rem solid rgba(0, 0, 0, .3);
+}
+
+/* Global styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+/* Grid mixin replacement */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minmax value as needed */
+    gap: 2rem;
+}
+
+/* Title text mixin replacement */
+.titleText {
+    font-size: 2rem; /* Adjust the font size as needed */
+    color: var(--black);
+    text-transform: capitalize;
+}
+
+/* Graphic text mixin replacement */
+.graphicText {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    color: var(--light-color);
+    line-height: 2;
+}
+
+/* Icons box mixin replacement */
+.iconsBox {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+}
+
+.iconsBox:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* HTML styles */
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--yellow);
+}
+
+section {
+    padding: 5rem 10%;
+}
+.heading {
+    margin-bottom: 3rem;
+    font-size: 3rem; /* Assuming the titleText mixin sets the font size */
+    line-height: 1.2; /* Assuming a standard line-height */
+    font-weight: bold; /* Assuming bold text for title */
+    padding-left: 1rem;
+    border-left: 1rem solid var(--yellow);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    background: var(--black);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    transition:  .2s linear;
+
+}
+
+.btn:hover {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+@keyframes fadeIn {
+    0% {
+        top: 50%;
+        opacity: 0;
+    }
+}
+
+/* Header styles */
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background: var(--white);
+}
+
+.header .logo {
+    font-size: 2.5rem; /* Adjust the font size as needed */
+    color: var(--black);
+    text-transform: capitalize;
+}
+
+.header .logo span {
+    color: var(--yellow);
+}
+
+.header .navbar a {
+    font-size: 2rem; /* Adjust the font size as needed */
+    color: var(--black);
+    text-transform: capitalize;
+    margin: 0 1rem;
+}
+
+.header .navbar a:hover {
+    color: var(--yellow);
+}
+
+.header .icons div {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+    margin-left: .3rem;
+}
+
+.header .icons div:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+#menu-btn {
+    display: none;
+}
+
+.search-form {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70rem;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeIn .2s linear;
+}
+
+.search-form.active {
+    display: flex;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    background: var(--light-bg);
+    font-size: 1.6rem;
+    color: var(--light-color);
+}
+
+.search-form label {
+    font-size: 2.5rem;
+    color: var(--black);
+    cursor: pointer;
+    margin: 0 1rem;
+}
+
+.search-form label:hover {
+    color: var(--yellow);
+}
+
+.login-form {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40rem;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn .2s linear;
+    display: none;
+}
+
+.login-form.active {
+    display: block;
+}
+
+.login-form h3 {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.login-form .box {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    background: var(--light-bg);
+    font-size: 1.6rem;
+    color: var(--light-color);
+    margin: .7rem 0;
+}
+
+.login-form .flex {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.login-form .flex label {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+.login-form .flex a {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    margin-left: auto;
+}
+
+.login-form .flex a:hover {
+    color: var(--yellow);
+    text-decoration: underline;
+}
+
+.login-form .btn {
+    width: 100%;
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    background: var(--black);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+}
+
+.login-form .btn:hover {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.login-form p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    padding-top: 1.5rem;
+}
+
+.login-form a {
+    color: var(--yellow);
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+/* Contact info starts */
+.contact-info {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 35rem;
+    background: var(--white);
+    height: 100%;
+    text-align: center;
+    z-index: 1100;
+    padding: 0 2rem;
+    padding-top: 5rem;
+    display: none;
+}
+
+.contact-info.active {
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, .7);
+    display: block;
+}
+
+#close-contact-info {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    font-size: 4rem;
+    color: var(--black);
+}
+
+#close-contact-info:hover {
+    transform: rotate(90deg);
+}
+
+.info {
+    padding: .3rem 0;
+}
+
+.contact-info .info i {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: .5rem;
+    transition: all .2s linear;
+}
+
+.contact-info .info i:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.contact-info .info h3 {
+    font-size: 2rem; /* Adjust the font size as needed */
+    color: var(--black);
+    text-transform: capitalize;
+    padding: 1rem 0;
+}
+
+.contact-info .info p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 1.5;
+}
+
+.contact-info .share {
+    padding-top: 1rem;
+    border-top: var(--border);
+    margin-top: 1.5rem;
+}
+
+.contact-info .share a {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    display: inline-block;
+    text-align: center;
+    margin: 0 .3rem;
+    transition: background .2s, color .2s;
+}
+
+.contact-info .share a:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* Home styles */
+.home{
+    padding: 0;
+}
+
+.slide {
+    min-height: 60rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--white), transparent);
+}
+
+.content {
+    width: 50rem;
+    position: relative;
+}
+
+.content h3 {
+    font-size: 6rem;
+    text-transform: uppercase;
+}
+
+.content p {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+.about .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.about .video {
+    flex: 1 1 41rem;
+}
+
+.about .video video {
+    width: 100%;
+}
+
+.about .content {
+    flex: 1 1 41rem;
+}
+
+.about .content h3 {
+    font-size: 3.5rem; /* Assuming the titleText mixin sets the font size */
+    line-height: 1.2; 
+    font-weight: bold; /* Assuming bold text for title */
+}
+
+.about .content p {
+    font-size: 1.5rem;
+    line-height: 1.5; 
+    color: #666; 
+    padding: 1rem 0;
+}
+
+
+
+.box-container {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 3rem; /* Assuming some gap between grid items */
+    align-items: flex-end;
+}
+
+.box-container .box {
+    text-align: center;
+    background: var(--light-bg);
+    padding: 3rem 2rem;
+    transition: .2s linear;
+}
+
+.box-container .box h3 {
+    font-size: 4rem; /* Assuming the titleText mixin sets the font size */
+    line-height: 1.2; /* Assuming a standard line-height */
+    font-weight: bold; /* Assuming bold text for title */
+}
+
+.box-container .box p {
+    font-size: 1.5rem; /* Assuming the graphicText mixin sets the font size */
+    line-height: 1.5; /* Assuming a standard line-height */
+    color: #666; /* Assuming a gray color for text */
+}
+/* Services section */
+.services {
+    background-color: var(--light-bg); /* Sets the background color to a light background variable */
+} 
+
+.services .box-container {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); /* Define grid columns */
+    gap: 1rem; /* Add gap between grid items */
+}
+
+.services .box-container .box {
+    text-align: center; /* Centers text within the box */
+    padding: 3rem; /* Adds padding inside the box */
+    background: var(--white); /* Sets the background color to white */
+    box-shadow: var(--box-shadow); /* Applies a box shadow */
+    border: var(--border); /* Sets the border using a variable */
+    transition: .2s linear;
+}
+
+.services .box-container .box:hover img {
+    transform: translateY(-1rem); /* Moves the image up on hover */
+    transition: .2s linear;
+
+}
+
+.services .box-container img {
+    height: 7rem; /* Sets the image height */
+    margin-bottom: .5rem; /* Adds margin below the image */
+    transition: .2s linear;
+
+}
+
+.services .box-container h3 {
+    font-size: 1.7rem; /* Sets the font size */
+    font-weight: bold; /* Sets the font weight */
+    padding: 1rem 0; /* Adds padding above and below the heading */
+}
+
+.services .box-container p {
+    font-size: 1.5rem; /* Sets the font size */
+    color: #555; /* Sets the text color */
+    line-height: 1.6; /* Sets the line height */
+}
+
+/* swipper slider design */
+.swiper-button-next,
+.swiper-button-prev{
+  top:initial;
+  bottom: 0;
+  left:initial;
+  right:0;
+  height:7rem;
+  width:7rem;
+  line-height: 7rem;
+  background: var(--white);
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+    background: var(--yellow);
+}
+.swiper-button-next::after,
+.swiper-button-prev::after{
+    font-size:2rem;
+    color:var(--black);
+}
+.swiper-button-prev{
+    right:8rem;
+}
+
+/* review starts */
+.reviews-slider{
+   width:300px;
+}
+
+.reviews .slide p {
+    padding: 1.5rem;
+    background: var(--light-bg);
+    position: relative;
+    margin-bottom: 3rem;
+    font-size: 1.5rem; /* Adjusted to match the graphicText mixin */
+}
+
+.reviews .slide p::before {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 2rem;
+    height: 2rem;
+    width: 2rem;
+    background: var(--light-bg);
+    transform: rotate(45deg);
+}
+
+.reviews .user{
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+}
+.reviews img{
+    height: 17rem;
+    width: 17rem;
+}
+.reviews h3{
+font-size: 2rem;}
+.reviews .stars{
+  padding-top:.5rem;
+}
+.reviews .stars i{
+font-size: 1.4rem;
+color:var(--yellow);
+}
+/* contact section satrts */
+.contact{
+    background: var(--black);
+}
+.contact .heading{
+    color: var(--white);
+}
+.contact .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+}
+.contact .map{
+    flex:1 1 41rem;
+    width:100%;
+}
+.contact form{
+    flex: 1 1 41rem;
+    background: var(--white);
+    padding:2rem;
+}
+.contact form h3 {
+    font-size: 2.5rem; /* Sets the font size to 2.5rem */
+    font-weight: bold; 
+    margin: 0; /* Resets the margin */
+    padding-bottom: 1rem;}
+    .contact form .box {
+        margin: 0.7rem 0; /* Adds a margin of 0.7rem to the top and bottom */
+        width: 100%; /* Sets the width to 100% of the parent element */
+        padding: 1.5rem 0; /* Adds padding of 1.5rem to the top and bottom */
+        border-bottom: var(--border); /* Sets the bottom border style using a CSS variable */
+        font-size: 1.6rem; /* Sets the font size to 1.6rem */
+        color: var(--light-color); /* Sets the text color using a CSS variable */
+        outline: none; /* Removes the default outline when the element is focused */
+    }
+    
+    .contact form .box:focus {
+        border-color: var(--yellow); /* Changes the border color when the element is focused, using a CSS variable */
+    }
+    
+.contact form textarea{
+    height: 15rem;
+    resize:none;
+}
+/* contact section ends */
+/* footer section starts */
+.footer{
+    text-align: center;
+}
+.footer .links .btn{
+    margin:.5rem;
+}
+
+.footer .credit {
+    font-size: 2rem; /* Sets the font size to 2rem */
+    font-weight: bold; /* Assumes the mixin includes setting the font weight to bold */
+    margin-top: 2rem; /* Adds a top margin of 2rem */
+    padding-top: 1rem;
+
+}
+.footer span{
+    color:var(--yellow);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries */
+@media (max-width: 1200px) {
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+    section {
+        padding: 3rem 5%;
+    }
+}
+
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+
+    .header #menu-btn {
+        display: inline-block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: var(--border);
+        border-bottom: var(--border);
+        transition:  .2s linear;
+        clip-path: polygon(0 0 100% 0, 100% 0,0 0);
+        &.active{
+            clip-path: polygon(0 0 100% 0, 100% 100%,0 100%);
+
+        }
+    }
+
+    .navbar a {
+        display: block;
+        margin: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .search-form,
+    .header .login-form {
+        width: 90%;
+    }
+    .home .slide{
+            justify-content: center;
+    }
+    .content{
+        text-align:center ;
+    }
+    h3{
+        font-size:3rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
